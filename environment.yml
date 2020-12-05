@@ -125,4 +125,3 @@ dependencies:
     - pydantic==1.7.3
     - starlette==0.13.6
     - uvicorn==0.12.3
-prefix: /usr/local/Caskroom/miniconda/base/envs/fastapi

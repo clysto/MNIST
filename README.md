@@ -2,8 +2,19 @@
 
 使用两层全连接层实现神经网络，在MNIST数据集上训练。
 
+## 开发
+
+```bash
+# 创建conda虚拟环境
+conda env create -f environment.yml
+
+# 激活虚拟环境
+conda activate fastapi
+```
+
 ## 使用
 
+> **在使用cli测试或者开启服务器之前先运行`python -m main train`，保证已经拥有训练模型后再启动进行测试。**
 
 ```bash
 # 训练
