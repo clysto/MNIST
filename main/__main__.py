@@ -10,6 +10,7 @@ from torch.autograd import Variable
 from main.net import Net
 from PIL import Image
 import sys
+import os
 
 
 def train():
@@ -51,6 +52,9 @@ def train():
 
 def extract_image():
     X, Y = load_dataset(type="test")
+
+    if not os.path.isdir("data/extract"):
+        os.mkdir("data/extract")
 
     for i in range(100):
         im = Image.fromarray(X[i])

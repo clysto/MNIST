@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MNIST</title>
+    <style>
+      .container {
+        max-width: 256px;
+        margin: 0 auto;
+      }
+
+      #result {
+        font-family: monospace;
+        font-size: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <button id="clear">清除</button>
+        <button id="recognize">识别</button>
+      </div>
+      <div>
+        <canvas width="256" height="256" id="canvas"></canvas>
+        <div>
+          <p id="result"></p>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/static/main.js"></script>
+  </body>
+</html>

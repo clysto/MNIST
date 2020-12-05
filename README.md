@@ -15,4 +15,11 @@ python -m main extract
 
 # 预测IMAGE PATH文件中的手写数字
 python -m test <IMAGE PATH>
+
+# 开启web服务器
+uvicorn app.main:app
 ```
+
+## web
+
+![web](./data/web.png)
