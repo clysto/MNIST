@@ -49,7 +49,7 @@ recognizeBtn.addEventListener('click', function () {
 });
 
 ctx.strokeStyle = 'white';
-ctx.lineWidth = 5;
+ctx.lineWidth = 10;
 ctx.lineCap = 'round';
 ctx.lineJoin = 'round';
 

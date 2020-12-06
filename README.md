@@ -4,12 +4,17 @@
 
 ## 开发
 
+> 建议: `Python 3.8`
+
 ```bash
-# 创建conda虚拟环境
-conda env create -f environment.yml
+# 创建venv虚拟环境
+python3 -m venv .venv
 
 # 激活虚拟环境
-conda activate fastapi
+source .venv/bin/activate
+
+# 安装依赖
+pip install -r requirements.txt
 ```
 
 ## 使用

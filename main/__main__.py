@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import torch.nn.functional as F
 from main.tools import load_dataset
 from tqdm import trange
 from torch.autograd import Variable
@@ -22,7 +21,7 @@ def train():
     loss_function = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.parameters(), lr=0.00005, momentum=0.9)
 
-    for i in (t := trange(10000)) :
+    for _ in (t := trange(10000)) :
         # 从样本集中随机抽取128个样本进行训练
         samp = np.random.randint(0, X_train.shape[0], size=(128))
         X = Variable(torch.tensor(X_train[samp].reshape((-1, 28 * 28))).float())

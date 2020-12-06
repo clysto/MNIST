@@ -1,0 +1,11 @@
+tqdm
+fastapi
+matplotlib
+numpy
+Pillow
+pydantic
+torch
+jinja2
+aiofiles
+black
+uvicorn
