@@ -1,7 +1,9 @@
 var canvas = document.getElementById('canvas');
 var clearBtn = document.getElementById('clear');
 var recognizeBtn = document.getElementById('recognize');
+var saveBtn = document.getElementById('save');
 var result = document.getElementById('result');
+var label = document.getElementById('label');
 var ctx = canvas.getContext('2d');
 
 function getCursorPosition(canvas, event) {
@@ -45,6 +47,30 @@ recognizeBtn.addEventListener('click', function () {
     })
     .then(function (res) {
       result.innerHTML = '识别结果: ' + res.data;
+    });
+});
+
+saveBtn.addEventListener('click', function () {
+  var value = label.value;
+  if (!value) {
+    Toastify({
+      text: '没有标签',
+      className: 'error',
+    }).showToast();
+    return;
+  }
+  axios
+    .post('/save', {
+      data_url: canvas.toDataURL('image/jpg'),
+      label: value,
+    })
+    .then(function () {
+      ctx.fillRect(0, 0, 256, 256);
+      result.innerHTML = '';
+      Toastify({
+        text: '保存成功',
+        className: 'info',
+      }).showToast();
     });
 });
 

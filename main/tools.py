@@ -1,5 +1,8 @@
 import gzip
 import numpy as np
+from os import path
+import glob
+from PIL import Image
 
 
 def load_dataset(type="train"):
@@ -24,3 +27,16 @@ def load_dataset(type="train"):
         dat = f.read()
     Y = np.frombuffer(gzip.decompress(dat), dtype=np.uint8).copy()[8:]
     return X, Y
+
+
+def load_user_dataset():
+    base_fp = "data/generate"
+    X = []
+    Y = []
+    for i in range(10):
+        fps = glob.glob(path.join(base_fp, str(i), "*.jpg"))
+        for fp in fps:
+            im = Image.open(fp).convert("L")
+            X.append(np.array(im))
+            Y.append(i)
+    return np.array(X), np.array(Y)

@@ -1,6 +1,6 @@
 # 全连接网络识别手写数字
 
-使用两层全连接层实现神经网络，在MNIST数据集上训练。
+使用卷积神经网络，在MNIST数据集上训练。
 
 ## 开发
 
@@ -25,6 +25,9 @@ pip install -r requirements.txt
 # 训练
 # 训练会将模型参数存于data/model.pl中
 python -m main train
+
+# 使用用户生成的图片来训练
+python -m main train_user
 
 # 将测试集中的前100张图片解压到data/extract目录中
 python -m main extract
