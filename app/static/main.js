@@ -46,7 +46,32 @@ recognizeBtn.addEventListener('click', function () {
       data_url: canvas.toDataURL('image/jpg'),
     })
     .then(function (res) {
-      result.innerHTML = '识别结果: ' + res.data;
+      var data = res.data.result.map(function (value, index) {
+        return {
+          number: index,
+          value: value.toFixed(5),
+        };
+      });
+
+      data.sort(function (a, b) {
+        return b.value - a.value;
+      });
+
+      result.innerHTML = '';
+      var resultTxt = document.createElement('div');
+      resultTxt.className = 'console';
+      var resultTable = document.createElement('table');
+      var $tr = document.createElement('tr');
+      $tr.innerHTML = '<th>label</th><th>value</th>';
+      resultTable.appendChild($tr);
+      for (var i = 0; i < 10; i++) {
+        $tr = document.createElement('tr');
+        $tr.innerHTML = `<td>${data[i].number}</td><td>${data[i].value}</td>`;
+        resultTable.appendChild($tr);
+      }
+      resultTxt.innerText = res.data.number;
+      result.appendChild(resultTxt);
+      result.appendChild(resultTable);
     });
 });
 

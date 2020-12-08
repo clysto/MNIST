@@ -1,4 +1,4 @@
-# 全连接网络识别手写数字
+# 神经网络识别手写数字
 
 使用卷积神经网络，在MNIST数据集上训练。
 
@@ -41,4 +41,4 @@ uvicorn app.main:app
 
 ## web
 
-![web](./data/web.png)
+![web](./data/screenshot.png)

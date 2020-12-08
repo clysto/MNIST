@@ -53,7 +53,7 @@ async def recognize(image_url: Optional[ImageUrl] = None):
     x = np.array(im)
     y = model(torch.unsqueeze(torch.tensor([x]).float(), 1))
     r = (torch.argmax(y, dim=1)).item()
-    return r
+    return {"result": y.tolist()[0], "number": r}
 
 
 @app.post("/save")

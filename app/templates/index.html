@@ -15,9 +15,25 @@
         margin: 0 auto;
       }
 
-      #result {
-        font-family: monospace;
+      .console {
+        font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
         font-size: 2em;
+        margin: 16px 0;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        text-align: center;
+      }
+
+      table {
+        font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+        font-size: 16px;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table td {
+        border: 1px solid #dedede;
       }
     </style>
   </head>
@@ -45,7 +61,7 @@
           </select>
         </div>
         <div>
-          <p id="result"></p>
+          <div id="result"></div>
         </div>
       </div>
     </div>
