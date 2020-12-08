@@ -3,16 +3,19 @@ import numpy as np
 from os import path
 import glob
 from PIL import Image
+import main
+
+project_fp = path.dirname(path.dirname(main.__file__))
 
 
 def load_dataset(type="train"):
     """加载MNIST数据集"""
     if type == "train":
-        images_fp = "data/train-images-idx3-ubyte.gz"
-        labels_fp = "data/train-labels-idx1-ubyte.gz"
+        images_fp = path.join(project_fp, "data/train-images-idx3-ubyte.gz")
+        labels_fp = path.join(project_fp, "data/train-labels-idx1-ubyte.gz")
     elif type == "test":
-        images_fp = "data/t10k-images-idx3-ubyte.gz"
-        labels_fp = "data/t10k-labels-idx1-ubyte.gz"
+        images_fp = path.join(project_fp, "data/t10k-images-idx3-ubyte.gz")
+        labels_fp = path.join(project_fp, "data/t10k-labels-idx1-ubyte.gz")
     else:
         raise Exception("没有这个类型")
 
@@ -30,7 +33,7 @@ def load_dataset(type="train"):
 
 
 def load_user_dataset():
-    base_fp = "data/generate"
+    base_fp = path.join(project_fp, "data/generate")
     X = []
     Y = []
     for i in range(10):
